@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bem-Vindo à Oscorp</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wdth@87.5&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <section class="hero" id="hero">
+    <div class="banner" role="banner">
+
+      <div class="scan-line"></div>
+
+      <header class="topbar">
+        <div class="logo fade-up delay-1">
+          <svg class="logo-hex" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="21,2 38,11 38,31 21,40 4,31 4,11" fill="none" stroke="#00ff88" stroke-width="1.5"/>
+            <polygon points="21,7 33,13.5 33,28.5 21,35 9,28.5 9,13.5" fill="rgba(0,255,136,0.06)" stroke="#00ff88" stroke-width="0.5"/>
+            <text x="21" y="26" text-anchor="middle" font-family="Orbitron,monospace" font-weight="900" font-size="13" fill="#00ff88">O</text>
+          </svg>
+          <div>
+            <div class="logo-text">Oscorp</div>
+            <div class="logo-sub">Company</div>
+          </div>
+        </div>
+
+        <!-- Hamburguer (mobile) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="topbar-right fade-up delay-1" id="navMenu">
+          <nav class="navbar" aria-label="Navegação principal">
+            <a href="#">Home</a>
+            <a href="#">Explorar</a>
+            <a href="#">Relatório</a>
+          </nav>
+        </div>
+      </header>
+
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+
+      <main class="content">
+        <div class="content-left">
+
+          <h1 class="headline fade-up delay-3">
+            <span class="headline-line1">Acompanhe a empresa</span>
+            <span class="headline-line2">Da próxima Era.</span>
+            <span class="headline-line3">Oscorp Company</span>
+          </h1>
+
+          <div class="divider fade-up delay-3"></div>
+
+          <p class="tagline fade-up delay-4">
+            Atuamos na interseção entre biotecnologia, inteligência artificial e novos materiais,
+            transformando ciência aplicada em progresso tangível. Descubra como a Oscorp Company
+            molda a infraestrutura tecnológica do futuro.
+          </p>
+
+          <div class="cta-row fade-up delay-5">
+            <a href="#" class="btn-primary">
+              Descobrir Tecnologias
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="btn-secondary">Analise de Relatórios</a>
+          </div>
+        </div>
+
+        <div class="content-right fade-up delay-4">
+          <div class="logo-wrapper">
+            <img src="img/logo.png" class="oscorp-logo" alt="Oscorp Logo" />
+          </div>
+        </div>
+      </main>
+
+      <footer class="stats-bar fade-up delay-6">
+        <div class="stat-item">
+          <div class="stat-number">147+</div>
+          <div class="stat-label">Tecnologias Ativas</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">32</div>
+          <div class="stat-label">Patentes Globais</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Taxa de Sucesso</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2047</div>
+          <div class="stat-label">Visão de Futuro</div>
+        </div>
+      </footer>
+
+      <div class="device-indicator" aria-hidden="true">
+        <span class="d-desktop">Viewport: Desktop</span>
+        <span class="d-tablet">Viewport: Tablet</span>
+        <span class="d-mobile">Viewport: Mobile</span>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('navMenu');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Fecha ao clicar num link
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.classList.remove('active');
+        toggle.setAttribute('aria-expanded', false);
+      });
+    });
+  </script>
+</body>
+</html>
