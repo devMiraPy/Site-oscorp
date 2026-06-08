@@ -13,6 +13,8 @@
 </head>
 <body>
 
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
   <section class="hero" id="hero">
     <div class="banner" role="banner">
 
@@ -20,25 +22,83 @@
 
       <header class="topbar">
         <div class="logo fade-up delay-1">
-          <svg class="logo-hex" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="21,2 38,11 38,31 21,40 4,31 4,11" fill="none" stroke="#00ff88" stroke-width="1.5"/>
-            <polygon points="21,7 33,13.5 33,28.5 21,35 9,28.5 9,13.5" fill="rgba(0,255,136,0.06)" stroke="#00ff88" stroke-width="0.5"/>
-            <text x="21" y="26" text-anchor="middle" font-family="Orbitron,monospace" font-weight="900" font-size="13" fill="#00ff88">O</text>
-          </svg>
+      <svg width="60" height="60" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+
+  <polygon
+    points="100,15 165,55 165,145 100,185 35,145 35,55"
+    fill="none"
+    stroke="#00ff9d"
+    stroke-width="6"
+    filter="url(#glow)"
+  />
+
+  
+  <g stroke="#00ff9d" stroke-width="4" fill="none" filter="url(#glow)">
+    <line x1="45" y1="80" x2="75" y2="80"/>
+    <line x1="45" y1="120" x2="75" y2="120"/>
+
+    <circle cx="45" cy="80" r="6"/>
+    <circle cx="45" cy="120" r="6"/>
+
+    <line x1="75" y1="80" x2="90" y2="95"/>
+    <line x1="75" y1="120" x2="90" y2="105"/>
+  </g>
+
+ 
+  <g stroke="#00ff9d" stroke-width="4" fill="none" filter="url(#glow)">
+    <line x1="125" y1="80" x2="155" y2="80"/>
+    <line x1="125" y1="120" x2="155" y2="120"/>
+
+    <circle cx="155" cy="80" r="6"/>
+    <circle cx="155" cy="120" r="6"/>
+
+    <line x1="125" y1="80" x2="110" y2="95"/>
+    <line x1="125" y1="120" x2="110" y2="105"/>
+  </g>
+
+
+  <g
+    stroke="#00ff9d"
+    stroke-width="6"
+    fill="none"
+    stroke-linecap="round"
+    filter="url(#glow)"
+  >
+    <path d="M85 55 C115 80,115 120,85 145"/>
+    <path d="M115 55 C85 80,85 120,115 145"/>
+
+    <line x1="90" y1="65" x2="110" y2="65"/>
+    <line x1="85" y1="90" x2="115" y2="90"/>
+    <line x1="85" y1="110" x2="115" y2="110"/>
+    <line x1="90" y1="135" x2="110" y2="135"/>
+  </g>
+
+</svg>
           <div>
             <div class="logo-text">Oscorp</div>
             <div class="logo-sub">Company</div>
           </div>
         </div>
 
-        <!-- Hamburguer (mobile) -->
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+       
+        <label for="nav-toggle" class="menu-toggle" aria-label="Abrir menu">
           <span></span>
           <span></span>
           <span></span>
-        </button>
+        </label>
 
-        <div class="topbar-right fade-up delay-1" id="navMenu">
+        <div class="topbar-right fade-up delay-1">
           <nav class="navbar" aria-label="Navegação principal">
             <a href="#">Home</a>
             <a href="#">Explorar</a>
@@ -85,25 +145,6 @@
         </div>
       </main>
 
-      <footer class="stats-bar fade-up delay-6">
-        <div class="stat-item">
-          <div class="stat-number">147+</div>
-          <div class="stat-label">Tecnologias Ativas</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">32</div>
-          <div class="stat-label">Patentes Globais</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Taxa de Sucesso</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">2047</div>
-          <div class="stat-label">Visão de Futuro</div>
-        </div>
-      </footer>
-
       <div class="device-indicator" aria-hidden="true">
         <span class="d-desktop">Viewport: Desktop</span>
         <span class="d-tablet">Viewport: Tablet</span>
@@ -113,24 +154,161 @@
     </div>
   </section>
 
-  <script>
-    const toggle = document.getElementById('menuToggle');
-    const nav    = document.getElementById('navMenu');
+ 
+  <section class="stats-section" id="status" aria-label="Indicadores da Oscorp">
+    <div class="stats-section-inner">
 
-    toggle.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('open');
-      toggle.classList.toggle('active', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-    });
+      <div class="stats-header">
+        <div class="stats-eyebrow">
+          <span class="stats-eyebrow-line"></span>
+          <span class="stats-eyebrow-text">Indicadores de Desempenho</span>
+          <span class="stats-eyebrow-line"></span>
+        </div>
+        <h2 class="stats-title">Status <span class="stats-title-accent">Operacional</span></h2>
+        <p class="stats-subtitle">Métricas em tempo real da Oscorp Company — atualizado continuamente.</p>
+      </div>
 
-    // Fecha ao clicar num link
-    nav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', false);
-      });
-    });
-  </script>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card-glow"></div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+            </svg>
+          </div>
+          <div class="stat-number">147<span class="stat-plus">+</span></div>
+          <div class="stat-label">Tecnologias Ativas</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:87%"></div></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-glow"></div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div class="stat-number">32</div>
+          <div class="stat-label">Patentes Globais</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:64%"></div></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-glow"></div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
+          <div class="stat-number">98<span class="stat-plus">%</span></div>
+          <div class="stat-label">Taxa de Sucesso</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:98%"></div></div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-card-glow"></div>
+          <div class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="stat-number">2047</div>
+          <div class="stat-label">Visão de Futuro</div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:42%"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="sobre-section" id="sobre">
+    <div class="sobre-inner">
+
+      <div class="sobre-eyebrow">
+        <span class="sobre-eyebrow-line"></span>
+        <span class="sobre-eyebrow-text">Sobre a Liderança</span>
+        <span class="sobre-eyebrow-line"></span>
+      </div>
+
+      <div class="sobre-grid">
+
+        <div class="sobre-photo-col">
+          <div class="sobre-photo-frame">
+            <div class="sobre-photo-placeholder">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="40" cy="28" r="16" stroke="#00ff88" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <path d="M12 72c0-15.464 12.536-28 28-28s28 12.536 28 28" stroke="#00ff88" stroke-width="1.5" stroke-dasharray="4 2"/>
+              </svg>
+              <span>Foto</span>
+            </div>
+            <div class="sobre-photo-corner sobre-photo-tl"></div>
+            <div class="sobre-photo-corner sobre-photo-tr"></div>
+            <div class="sobre-photo-corner sobre-photo-bl"></div>
+            <div class="sobre-photo-corner sobre-photo-br"></div>
+          </div>
+          <div class="sobre-badge-role">
+            <span class="sobre-badge-dot"></span>
+            Diretor Executivo — Oscorp Co.
+          </div>
+        </div>
+
+        <div class="sobre-content-col">
+
+          <h2 class="sobre-title">
+            Norman <span class="sobre-title-accent">Osborn</span>
+          </h2>
+          <p class="sobre-role-line">Fundador & CEO · Cientista-Chefe</p>
+
+          <div class="sobre-divider"></div>
+
+          <p class="sobre-bio">
+            Visionário à frente da Oscorp Company há mais de duas décadas, Norman Osborn
+            combina rigor científico com ousadia estratégica para transformar pesquisa
+            de ponta em soluções reais. Doutor em Bioquímica Aplicada pelo MIT, lidera
+            equipes multidisciplinares que atuam nos limites da biotecnologia, IA e
+            novos materiais.
+          </p>
+
+          <p class="sobre-bio" style="margin-top: 14px;">
+            Sob sua gestão, a Oscorp acumulou 32 patentes globais e se estabeleceu como
+            referência em inovação tecnológica de alto impacto, com projetos ativos em
+            mais de 18 países.
+          </p>
+
+          <div class="sobre-tags">
+            <span class="sobre-tag">Biotecnologia</span>
+            <span class="sobre-tag">Inteligência Artificial</span>
+            <span class="sobre-tag">Novos Materiais</span>
+            <span class="sobre-tag">P&D Avançado</span>
+            <span class="sobre-tag">Estratégia Corporativa</span>
+          </div>
+
+          <div class="sobre-links">
+            <a href="#" class="sobre-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="#" class="sobre-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+              Contato
+            </a>
+            <a href="#" class="sobre-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Currículo
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
 </body>
 </html>
